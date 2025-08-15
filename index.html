@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loader Example</title>
+</head>
+
+<body style="margin: 0; height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 20px;">
+    
+     <select id="colorSelect">
+        <option value="red">Red</option>
+        <option value="orange">Orange</option>
+        <option value="yellow">Yellow</option>
+        <option value="lime">Lime</option>
+        <option value="green">Green</option>
+        <option value="teal">Teal</option>
+        <option value="cyan">Cyan</option>
+        <option value="skyblue">Sky Blue</option>
+        <option value="blue">Blue</option>
+        <option value="navy">Navy</option>
+        <option value="purple">Purple</option>
+        <option value="magenta">Magenta</option>
+        <option value="pink">Pink</option>
+        <option value="brown">Brown</option>
+        <option value="gray">Gray</option>
+        <option value="black" selected>Black</option>
+        <option value="white">White</option>
+    </select>
+
+    <button onclick="changeColor()">Change Color</button>
+
+    <div
+        id="line"
+        style="background-color: black; height: 5px; width: 10%;">
+    </div>
+
+    <script>
+        let widths = ["10%", "20%", "30%", "40%", "50%", "100%"];
+        let index = 0;
+
+        // Animate the width
+        setInterval(() => {
+            document.getElementById("line").style.width = widths[index];
+            index = (index + 1) % widths.length; // loop back to start
+        }, 500);
+
+        // Change the color based on dropdown selection
+        function changeColor() {
+            let selectedColor = document.getElementById("colorSelect").value;
+            document.getElementById("line").style.backgroundColor = selectedColor;
+        }
+    </script>
+</body>
+</html>
